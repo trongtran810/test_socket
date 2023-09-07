@@ -9,6 +9,7 @@ from grpc_def import grpc_route_pb2_grpc as pb2_grpc
 print("socket_server: ")
 print("system paths: ")
 pprint.pprint(sys.path)
+pprint.pprint(sys.path)
 # Socket server configuration
 socket_host = '127.0.0.1'
 socket_port = 8080
@@ -51,11 +52,9 @@ if __name__ == "__main__":
     import threading
 
     # Start the socket server in a separate thread
-    run_socket_server()
-
-    # socket_server_thread = threading.Thread(target=run_socket_server)
-    # socket_server_thread.daemon = True
-    # socket_server_thread.start()
+    socket_server_thread = threading.Thread(target=run_socket_server)
+    socket_server_thread.daemon = True
+    socket_server_thread.start()
 
     # Start the gRPC server in the main thread
     run_grpc_server()
