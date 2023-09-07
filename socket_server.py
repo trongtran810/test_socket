@@ -17,12 +17,12 @@ class GrpcRouteService(pb2_grpc.GrpcRouteServicer):
     def GetCategory(self, request, context):
         # Implement your gRPC method logic here
         response = pb2.Category()
-        response.message = f"Received gRPC request: {request.message}"
+        response.categoryType = "good"
         return response
 
 def run_socket_server():
-    socket_host = "127.0.0.1"
-    socket_port = 65535
+    socket_host = '127.0.0.1'
+    socket_port = 63636
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server_socket:
         server_socket.bind((socket_host, socket_port))
         server_socket.listen()
